@@ -11,34 +11,39 @@
 <body>
     <div id="message-container" ></div>
     <div id="index-datacard-container"></div>
+    <div class = 'data-container'>
     <div id="show-datacard-container"></div>
-    <h1>Lore Hammer 40K</h1>
+    <div id="wargear-container"></div>
+    <div id="create-wargear-container"></div>
+    </div>
+    <h1 id = 'title'>Lore Hammer 40K</h1>
     <img id = "imp-eagle" src = './imgs/pngaaa.com-1160189.png'/>
     <form id = "signin-container">
-        <label for="email">Sign in</label>
+        <label for="email">Sign in</label><br>
         <input type = "email" name = "email" placeholder= "Email"  /><br>
         <input type = "password" name = "password" placeholder= "Password" /><br>
         <button type = "submit">Sign in</button>
     </form>
+    <br>
     <form id = "signup-container">
-        <label for = "email">Sign Up</label>
+        <label for = "email">Sign Up</label><br>
         <input type = "email"  name = "email" placeholder= "Email" /><br>
         <input type = "password" name = "password" placeholder= "Password" /><br>
         <button type = "submit">Sign Up</button>
     </form>
 
     <form id="create-datacard-form" >
-        <input  type ="text" name="name" placeholder="name" />
-        <input  type="number" name="movement" placeholder="Movement" />
-        <input  type="number" name="weaponSkill" placeholder="Weapon Skill" />
-        <input  type="number" name="ballisticSkill" placeholder="Ballistic Skill" />
-        <input  type="number" name="strength" placeholder="Strength" />
-        <input  type="number" name="toughness" placeholder="Toughness" />
-        <input  type="number" name="wounds" placeholder="Wounds" />
-        <input  type="number" name="attacks" placeholder="Attacks" />
-        <input  type="number" name="leadership" placeholder="Leadership" />
-        <input  type="number" name="saves" placeholder="Saves" />
-        <input  type="submit" value="Create Datacard"/>
+        <input class = 'input-line'  type ="text" name="name" placeholder="Name" />
+        <input class = 'input-line' type="number" name="movement" placeholder="Movement" />
+        <input class = 'input-line' type="number" name="weaponSkill" placeholder="Weapon Skill" />
+        <input class = 'input-line' type="number" name="ballisticSkill" placeholder="Ballistic Skill" />
+        <input class = 'input-line' type="number" name="strength" placeholder="Strength" />
+        <input class = 'input-line' type="number" name="toughness" placeholder="Toughness" />
+        <input class = 'input-line' type="number" name="wounds" placeholder="Wounds" />
+        <input class = 'input-line' type="number" name="attacks" placeholder="Attacks" />
+        <input class = 'input-line' type="number" name="leadership" placeholder="Leadership" />
+        <input class = 'input-line' type="number" name="saves" placeholder="Saves" />
+        <input id = 'create-datacard-button'  type="submit" value="Create Datacard"/>
     </form>
 
 </body>

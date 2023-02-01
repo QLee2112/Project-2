@@ -1,9 +1,9 @@
 body{
     background-color: darkgray;
 }
-/* .datacard-creator{
+#create-datacard-form{
     visibility: hidden;
-} */
+}
 
 #login-container{
     background-color: red;
@@ -22,4 +22,47 @@ h1{
     height: 50vh;
     display: block;
     margin: auto;
+}
+
+#create-datacard-button{
+    display: block;
+    margin: auto;
+}
+
+#signin-container{
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+#signup-container{
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+.input-line{
+    width: 100px;
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+}
+#create-wargear-button{
+    margin: auto;
+}
+.datacard-container{
+    display:flex;
+    align-content: center;
+    flex-direction: column;
+    text-align:center
+}
+#index-datacard-container{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+#create-wargear-form{
+    display:flex;
+    align-content: center;
+    flex-direction: column;
+    text-align:center
+
 }

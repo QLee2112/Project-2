@@ -1,4 +1,4 @@
-import { indexDatacard, createDatacard, showDatacard, updateDatacard, deleteDatacard, signIn, signUp } from "./api.js"
+import { indexDatacard, createDatacard, showDatacard, updateDatacard, deleteDatacard, signIn, signUp, createWargear } from "./api.js"
 import { onIndexDatacardSuccess, onFailure, onCreateDatacardSuccess, onShowDatacardSuccess, onUpdateDatacardSuccess, onDeleteDatacardSuccess, onSignUpSuccess, onSignInSuccess } from "./ui.js";
 
 const createDatacardForm = document.querySelector('#create-datacard-form')
@@ -6,6 +6,7 @@ const indexDatacardContainer = document.querySelector('#index-datacard-container
 const showDatacardContainer = document.querySelector('#show-datacard-container')
 const signUpContainer = document.querySelector('#signup-container')
 const signInContainer = document.querySelector('#signin-container')
+const createWargearContainer = document.querySelector('#create-wargear-container')
 
 signUpContainer.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -38,13 +39,6 @@ signInContainer.addEventListener('submit', (event) => {
         .catch(onFailure)
 })
 
-// indexDatacard()
-//     .then(res => res.json())
-//     .then(res => {
-//         onIndexDatacardSuccess(res.datacard)
-//     })
-//     .catch(onFailure)
-
 createDatacardForm.addEventListener('submit',(event) => {
     event.preventDefault()
     const datacardInfo = {
@@ -54,13 +48,14 @@ createDatacardForm.addEventListener('submit',(event) => {
             weaponSkill: event.target['weaponSkill'].value,
             ballisticSkill: event.target['ballisticSkill'].value,
             strength: event.target['strength'].value,
-            toughtness: event.target['toughness'].value,
+            toughness: event.target['toughness'].value,
             wounds: event.target['wounds'].value,
             attacks: event.target['attacks'].value,
             leadership: event.target['leadership'].value,
             saves: event.target['saves'].value,
             },
     }
+    console.log(datacardInfo)
     createDatacard(datacardInfo)
         .then(onCreateDatacardSuccess)
         .catch(onFailure)
@@ -102,5 +97,26 @@ showDatacardContainer.addEventListener('click', (event) => {
     if(!id) return
     deleteDatacard(id)
         .then(onDeleteDatacardSuccess)
+        .catch(onFailure)
+})
+
+createWargearContainer.addEventListener('submit', (event) =>{
+    event.preventDefault()
+
+    const datacardId = event.target.getAttribute('data-createId')
+
+    const wargearData = {
+        wargear:{
+            name: event.target['name'].value,
+            range: event.target['range'].value,
+            type: event.target['type'].value,
+            strength: event.target['strength'].value,
+            ap: event.target['ap'].value,
+            damage: event.target['damage'].value,
+            datacardId: datacardId
+        }
+    }
+    createWargear(wargearData)
+        .then(onCreateDatacardSuccess)
         .catch(onFailure)
 })

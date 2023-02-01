@@ -8,8 +8,16 @@ export const indexDatacard = () => {
     })
 }
 
+export const indexWargear = () => {
+    return fetch(`http://localhost:3000/wargears`, {
+        headers: {
+            'Authorization': `Bearer ${store.userToken}`
+        }
+    })
+}
+
 export const createDatacard = (data) => {
-    return fetch(`https://localhost:3000/datacards`, {
+    return fetch(`http://localhost:3000/datacards`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -29,7 +37,7 @@ export const showDatacard = (id) => {
 }
 
 export const updateDatacard = (data, id) => {
-    return fetch(`http://localhost:3000/datacards/${id}`), {
+    return fetch(`http://localhost:3000/datacards/${id}`, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
@@ -37,16 +45,16 @@ export const updateDatacard = (data, id) => {
             'Authorization': `Bearer ${store.userToken}`
         },
         body: JSON.stringify(data)
-    }
+    })
 }
 
 export const deleteDatacard = (id) => {
-    return fetch(`http://localhost:3000/datacards/${id}`), {
+    return fetch(`http://localhost:3000/datacards/${id}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${store.userToken}`
         }
-    }
+    })
 }
 
 export const signUp = (data) => {
@@ -66,6 +74,18 @@ export const signIn = (data) => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+}
+
+export const createWargear = (data) => {
+    return fetch(`http://localhost:3000/wargears`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`
         },
         body: JSON.stringify(data)
     })
