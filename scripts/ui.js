@@ -37,7 +37,6 @@ export const onShowDatacardSuccess = (datacard) => {
     <p>${datacard.attacks}</p>
     <p>${datacard.leadership}</p>
     <p>${datacard.saves}</p>
-    <p>${datacard.id}</p>
 
     <form id="create-character-form" >
         <input type="text" name="name" placeholder="name" />
@@ -50,7 +49,6 @@ export const onShowDatacardSuccess = (datacard) => {
         <input type="text" name="attacks" placeholder="Attacks" />
         <input type="text" name="leadership" placeholder="Leadership" />
         <input type="text" name="saves" placeholder="Saves" />
-        <input type="text" name="id" placeholder="Id" />
         <input type="submit" value="Create Datacard"/>
     </form>
 

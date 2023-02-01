@@ -1,0 +1,25 @@
+body{
+    background-color: darkgray;
+}
+.datacard-creator{
+    visibility: hidden;
+}
+
+#login-container{
+    background-color: red;
+    text-align: center;
+    width: 600px;
+    display: block;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+#imp-eagle{
+    width: 70vw;
+    height: 50vh;
+    display: block;
+    margin: auto;
+}

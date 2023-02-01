@@ -3,7 +3,7 @@ export const indexDatacard = () => {
 }
 
 export const createDatacard = (data) => {
-    return fetch(`https://localhost:8000/datacard`, {
+    return fetch(`https://localhost:3000/datacard`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -29,7 +29,29 @@ export const updateDatacard = (data, id) => {
 }
 
 export const deleteDatacard = (id) => {
-    return fetch(`http://localhost:8000/datacard/${id}`), {
+    return fetch(`http://localhost:3000/datacard/${id}`), {
         method: 'DELETE'
     }
+}
+
+export const signUp = (data) => {
+    return fetch('http://localhost:3000/sign-up',{
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'appliciation/json',
+        },
+        body: JSON.stringify(data)
+    })
+}
+
+export const signIn = (data) => {
+    return fetch('http://localhost:3000/sign-in', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'appliciation/json',
+        },
+        body: JSON.stringify(data)
+    })
 }
