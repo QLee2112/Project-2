@@ -1,15 +1,15 @@
 Title: Lorehammer 40K
 
 Technology Used:
-bcrypt
-cors
-express
-jsonwebtoken
-mongodb
-mongoose
-nodemon
-passport
-passport-jwt
+1. bcrypt
+2. cors
+3. express
+4. jsonwebtoken
+5. mongodb
+6. mongoose
+7. nodemon
+8. passport
+9. passport-jwt
 
 ![ERD](/imgs/Project-2-ERD.png)
 
