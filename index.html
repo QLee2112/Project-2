@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="./scripts/app.js" defer></script>
     <title>Lorehammer 40K</title>
 </head>
 <body>
@@ -13,27 +14,33 @@
     <div id="show-datacard-container"></div>
     <h1>Lore Hammer 40K</h1>
     <img id = "imp-eagle" src = './imgs/pngaaa.com-1160189.png'/>
-    <div id = "login-container">
-        <h3>Login</h3>
-        <input type = "text" placeholder= "Email" /><br>
-        <input type = "text" placeholder= "Password" /><br>
-        <button>Login</button>
-    </div>
+    <form id = "signin-container">
+        <label for="email">Sign in</label>
+        <input type = "email" name = "email" placeholder= "Email"  /><br>
+        <input type = "password" name = "password" placeholder= "Password" /><br>
+        <button type = "submit">Sign in</button>
+    </form>
+    <form id = "signup-container">
+        <label for = "email">Sign Up</label>
+        <input type = "email"  name = "email" placeholder= "Email" /><br>
+        <input type = "password" name = "password" placeholder= "Password" /><br>
+        <button type = "submit">Sign Up</button>
+    </form>
 
     <form id="create-datacard-form" >
-        <input class = datacard-creator type ="text" name="name" placeholder="name" />
-        <input class = datacard-creator type="text" name="movement" placeholder="Movement" />
-        <input class = datacard-creator type="text" name="weaponSkill" placeholder="Weapon Skill" />
-        <input class = datacard-creator type="text" name="ballisticSkill" placeholder="Ballistic Skill" />
-        <input class = datacard-creator type="text" name="strength" placeholder="Strength" />
-        <input class = datacard-creator type="text" name="toughness" placeholder="Toughness" />
-        <input class = datacard-creator type="text" name="wounds" placeholder="Wounds" />
-        <input class = datacard-creator type="text" name="attacks" placeholder="Attacks" />
-        <input class = datacard-creator type="text" name="leadership" placeholder="Leadership" />
-        <input class = datacard-creator type="text" name="saves" placeholder="Saves" />
-        <input class = datacard-creator type="submit" value="Create Datacard"/>
+        <input  type ="text" name="name" placeholder="name" />
+        <input  type="number" name="movement" placeholder="Movement" />
+        <input  type="number" name="weaponSkill" placeholder="Weapon Skill" />
+        <input  type="number" name="ballisticSkill" placeholder="Ballistic Skill" />
+        <input  type="number" name="strength" placeholder="Strength" />
+        <input  type="number" name="toughness" placeholder="Toughness" />
+        <input  type="number" name="wounds" placeholder="Wounds" />
+        <input  type="number" name="attacks" placeholder="Attacks" />
+        <input  type="number" name="leadership" placeholder="Leadership" />
+        <input  type="number" name="saves" placeholder="Saves" />
+        <input  type="submit" value="Create Datacard"/>
     </form>
 
 </body>
-<script type="module" src="./scripts/app.js" defer></script>
+
 </html>

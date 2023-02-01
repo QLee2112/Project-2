@@ -1,12 +1,15 @@
+import { store } from "./store.js"
+
 const indexDatacardContainer = document.querySelector('#index-datacard-container')
 const messageContainer = document.querySelector('#message-container')
 const showDatacardContainer = document.querySelector('#show-datacard-container')
+const signUpContainer = document.querySelector('#signup-container')
 
 export const onIndexDatacardSuccess = (datacard) => {
     datacard.forEach(datacard => {
         const div = document.createElement('div')
         div.innerHTML = `
-        <h1>${datacard.name}    ${datacard.movement}   ${datacard.weaponSkill}  ${datacard.ballisticSkill}  ${datacard.strength}    ${datacard.toughness}   ${datacard.wounds}  ${datacard.attacks} ${datacard.leadership}  ${datacard.saves}   ${datacard.id}</h1>
+        <h1>${datacard.name}</h1>
         <button data-id = "${datacard._id}" >Show Datacard</button>
         `
         indexDatacardContainer.appendChild(div)
@@ -28,15 +31,15 @@ export const onShowDatacardSuccess = (datacard) => {
     const div = document.createElement('div')
     div.innerHTML = `
     <h1>${datacard.name}</h1>
-    <p>${datacard.movement}</p>
-    <p>${datacard.weaponSkill}</p>
-    <p>${datacard.ballisticSkill}</p>
-    <p>${datacard.strength}</p>
-    <p>${datacard.toughness}</p>
-    <p>${datacard.wounds}</p>
-    <p>${datacard.attacks}</p>
-    <p>${datacard.leadership}</p>
-    <p>${datacard.saves}</p>
+    <p>Movement: ${datacard.movement}</p>
+    <p>Weapon Skill: ${datacard.weaponSkill}</p>
+    <p>Ballistic Skill: ${datacard.ballisticSkill}</p>
+    <p>Strength: ${datacard.strength}</p>
+    <p>Toughness: ${datacard.toughness}</p>
+    <p>Wounds: ${datacard.wounds}</p>
+    <p>Attacks: ${datacard.attacks}</p>
+    <p>Leadership: ${datacard.leadership}</p>
+    <p>Saves: ${datacard.saves}</p>
 
     <form id="create-character-form" >
         <input type="text" name="name" placeholder="name" />
@@ -54,7 +57,7 @@ export const onShowDatacardSuccess = (datacard) => {
 
     <button data-id = "${datacard._id}">Delete Datacard</button>
     `
-    showDatacardContainer,appendChild(div)
+    showDatacardContainer.appendChild(div)
 }
 
 export const onUpdateDatacardSuccess = () => {
@@ -63,4 +66,17 @@ export const onUpdateDatacardSuccess = () => {
 
 export const onDeleteDatacardSuccess = () => {
     messageContainer.innerText = 'Delete Successful'
+}
+
+export const onSignUpSuccess = () => {
+    console.log('Signup success')
+}
+export const onSignInSuccess = (userToken) => {
+    messageContainer.innerHTML = ''
+    store.userToken = userToken
+    // authContainer.classList.add('hide')
+    // indexCarContainer.classList.remove('hide')
+    // browse.classList.remove('hide')
+    // carCreateButton.classList.remove('hide')
+    // nav.classList.remove('hide')
 }

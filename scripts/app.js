@@ -1,17 +1,49 @@
-import { indexDatacard, createDatacard, showDatacard, updateDatacard, deleteDatacard } from "./api";
-import { onIndexDatacardSuccess, onFailure, onCreateDatacardSuccess, onShowDatacardSuccess, onUpdateDatacardSuccess, onDeleteDatacardSuccess } from "./ui";
+import { indexDatacard, createDatacard, showDatacard, updateDatacard, deleteDatacard, signIn, signUp } from "./api.js"
+import { onIndexDatacardSuccess, onFailure, onCreateDatacardSuccess, onShowDatacardSuccess, onUpdateDatacardSuccess, onDeleteDatacardSuccess, onSignUpSuccess, onSignInSuccess } from "./ui.js";
 
-
-const createDatacardForm = document.querySelector('#create-datacard=form')
-const indexDatacardContainer = documnet.querySelector('#index-datacard-container')
+const createDatacardForm = document.querySelector('#create-datacard-form')
+const indexDatacardContainer = document.querySelector('#index-datacard-container')
 const showDatacardContainer = document.querySelector('#show-datacard-container')
+const signUpContainer = document.querySelector('#signup-container')
+const signInContainer = document.querySelector('#signin-container')
 
-indexDatacard()
-    .then(res => res.json())
-    .then(res => {
-        onIndexDatacardSuccess(res.datacard)
-    })
+signUpContainer.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const userData = {
+        credentials: {
+            email: event.target[0].value,
+            password: event.target[1].value,
+        },
+    }
+    console.log(userData)
+    signUp(userData)
+    .then(onSignUpSuccess)
     .catch(onFailure)
+})
+
+signInContainer.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const userData = {
+        credentials: {
+            email: event.target[0].value,
+            password: event.target[1].value
+        },
+    }
+    signIn(userData)
+        .then((res) => res.json())
+        .then((res) => onSignInSuccess(res.token))
+        .then(indexDatacard)
+        .then((res) => res.json())
+        .then((res) => onIndexDatacardSuccess(res.datacard))
+        .catch(onFailure)
+})
+
+// indexDatacard()
+//     .then(res => res.json())
+//     .then(res => {
+//         onIndexDatacardSuccess(res.datacard)
+//     })
+//     .catch(onFailure)
 
 createDatacardForm.addEventListener('submit',(event) => {
     event.preventDefault()
